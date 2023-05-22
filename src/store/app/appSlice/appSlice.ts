@@ -1,9 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {AppSlice} from '@/store/types/types';
+import {AppSlice, CalculationConditions} from '@/store/types/types';
 
 
 const initialState = {
-   isFirstStepSucceed:false
+   isFirstStepSucceed:false,
+   isSecondStepSucceed:false,
+   calculationResultRow:''
 } as AppSlice;
 
 export const appSlice = createSlice({
@@ -14,12 +16,19 @@ export const appSlice = createSlice({
         changeIsFirstStepSucceed: (state,action:PayloadAction<boolean>) => {
             state.isFirstStepSucceed = action.payload;
         },
+        changeIsSecondStepSucceed: (state,action:PayloadAction<boolean>) => {
+            state.isSecondStepSucceed = action.payload;
+        },
+        changeCalculationResultRow: (state,action:PayloadAction<string>) => {
+            state.calculationResultRow = action.payload;
+        },
 
     },
 });
 
 export const {
     changeIsFirstStepSucceed,
-    reset
+    changeIsSecondStepSucceed,
+    changeCalculationResultRow
 } = appSlice.actions;
 export default appSlice.reducer;

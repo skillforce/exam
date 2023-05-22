@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
+import styles from './FormWrapper.module.scss'
 
-const FormWrapper = () => {
+
+interface FormWrapperProps{
+    children?:ReactNode
+    className?:string
+}
+
+const FormWrapper = ({className,children}:FormWrapperProps) => {
     return (
-        <div>
-            
-            </div>
+        <div className={`${styles.formContainer} ${className && className}`}>
+            {children}
+        </div>
     );
 };
 

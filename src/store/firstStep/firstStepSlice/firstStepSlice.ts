@@ -5,7 +5,7 @@ import {FirstStep} from '@/store/types/types';
 const initialState = {
     userName: '',
     phoneNumber: '',
-    registerNumber: '',
+    registerEmail: '',
     isUserNameSaved: false,
     isPhoneNumberSaved: false,
     isRegisterNumberSaved: false,
@@ -22,8 +22,8 @@ export const firstStepSlice = createSlice({
         changePhoneNumber: (state,action:PayloadAction<string>) => {
             state.phoneNumber = action.payload;
         },
-        changeRegisterNumber: (state,action:PayloadAction<string>) => {
-            state.registerNumber = action.payload;
+        changeRegisterEmail: (state, action:PayloadAction<string>) => {
+            state.registerEmail = action.payload;
         },
         saveUserName: (state) => {
             state.isUserNameSaved = true;
@@ -42,7 +42,7 @@ export const firstStepSlice = createSlice({
 export const {
     changeUserName,
     changePhoneNumber,
-    changeRegisterNumber,
+    changeRegisterEmail,
     saveUserName,
     savePhoneNumber,
     saveRegisterNumber,

@@ -1,16 +1,16 @@
 import React from 'react';
 import './SecondaryBtn.scss'
 
-const SecondaryBtn = () => {
+const SecondaryBtn = ({onBtnClick}:{onBtnClick:()=>void}) => {
 
     const onClickBtn = ()=>{
-        console.log("click")
+        onBtnClick()
     }
     return (
         <div className={'secondaryBtnContainer'}>
         <button onClick={onClickBtn}>
-            Отправить на email
-            <svg width="79" height="46" viewBox="0 0 79 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+           Начать с начала
+            <svg width="99" height="46" viewBox="0 0 79 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_f_618_1123)">
                     <path d="M42.9 2H76.5L34.5 44H2L42.9 2Z" fill="url(#paint0_linear_618_1123)"/>
                 </g>

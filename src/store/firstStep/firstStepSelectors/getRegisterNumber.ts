@@ -1,3 +1,3 @@
 import {FirstStep, StateSchema} from '@/store/types/types';
 
-export const getRegisterNumber = (state:StateSchema)=>state?.firstStepSlice.registerNumber
+export const getRegisterEmail = (state:StateSchema)=>state?.firstStepSlice.registerEmail

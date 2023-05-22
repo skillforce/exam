@@ -1,3 +1,3 @@
 import {StateSchema} from '@/store/types/types';
 
-export const getIsSavedPhoneNumber = (state:StateSchema )=>state.firstStepSlice.isPhoneNumberSaved
+export const getIsFirstStepSucceed = (state:StateSchema )=>state.appSlice.isFirstStepSucceed

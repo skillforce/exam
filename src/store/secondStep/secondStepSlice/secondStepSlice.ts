@@ -1,51 +1,38 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {FirstStep} from '@/store/types/types';
+import {SecondStep} from '@/store/types/types';
 
 
 const initialState = {
-    userName: '',
-    phoneNumber: '',
-    registerNumber: '',
-    isUserNameSaved: false,
-    isPhoneNumberSaved: false,
-    isRegisterNumberSaved: false,
-} as FirstStep;
+    selectedFloorId: null,
+    selectedSquareId: null,
+    selectedRadioBtnIds:[]
+} as SecondStep;
 
-export const firstStepSlice = createSlice({
-    name: "firstStepSlice",
+export const secondStepSlice = createSlice({
+    name: "secondStepSlice",
     initialState,
     reducers: {
         reset: () => initialState,
-        changeUserName: (state,action:PayloadAction<string>) => {
-            state.userName = action.payload;
+        changeSelectedFloorId: (state,action:PayloadAction<number>) => {
+            state.selectedFloorId = action.payload;
         },
-        changePhoneNumber: (state,action:PayloadAction<string>) => {
-            state.phoneNumber = action.payload;
+        changeSelectedSquareId: (state,action:PayloadAction<number>) => {
+            state.selectedSquareId = action.payload;
         },
-        changeRegisterNumber: (state,action:PayloadAction<string>) => {
-            state.registerNumber = action.payload;
+        changeSelectedRadioBtnIds: (state,action:PayloadAction<{id:string,isChecked:boolean}>) => {
+           if(action.payload.isChecked) {
+               state.selectedRadioBtnIds.push(action.payload.id);
+           }else{
+               state.selectedRadioBtnIds= state.selectedRadioBtnIds.filter(t=>t!==action.payload.id)
+           }
         },
-        saveUserName: (state) => {
-            state.isUserNameSaved = true;
-        },
-        savePhoneNumber: (state) => {
-            state.isPhoneNumberSaved = true;
-        },
-        saveRegisterNumber: (state) => {
-
-            state.isRegisterNumberSaved = true;
-        },
-
     },
 });
 
 export const {
-    changeUserName,
-    changePhoneNumber,
-    changeRegisterNumber,
-    saveUserName,
-    savePhoneNumber,
-    saveRegisterNumber,
+    changeSelectedFloorId,
+    changeSelectedSquareId,
+    changeSelectedRadioBtnIds,
     reset
-} = firstStepSlice.actions;
-export default firstStepSlice.reducer;
+} = secondStepSlice.actions;
+export default secondStepSlice.reducer;
